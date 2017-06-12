@@ -13,20 +13,29 @@
 
 $userInput = $_GET['urlName'];
 
+$userInput = 
 $urlRedirect = get_redirect_final_target($userInput);
-$date = date('Y-m-d H:i:s');
+//$date = date('Y-m-d H:i:s');
 $finalURL = get_final_url($urlRedirect);
-//$rCode = get_http_response_code($rdirect);
+
+
+
+$rCode = get_http_response_code($finalURL);
 $cCode = curlResponseCode($finalURL);
 
 
+if ($cCode == 0) {
+	$cCode = $rCode;
+}
+
 $isURL = is_url($finalURL);
 
-/*
 echo 'final url status code '.$cCode.'</br>';
+echo 'get http url status code '.$rCode.'</br>';
 echo "final url ".$finalURL.'</br>';
-*/
+
 // CHECKS IF URL IS ALREADY STORED IN THE  DATABASE
+/*
 $sql = "INSERT INTO uptimebot (url, statuscode) VALUES('".$finalURL."','".$cCode."')";
 
 $result = $conn->query("SELECT urlID, url, statuscode, lastupdate FROM uptimebot WHERE url = '".$finalURL."'");
@@ -58,7 +67,7 @@ if ($isURL == TRUE) {
 } else {
 	echo $finalURL." not a valid url";
 }
-
+*/
 ?>
 
 
