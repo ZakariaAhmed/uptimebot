@@ -14,8 +14,6 @@ while ($row = $result->fetch_assoc()) {
 
 
 foreach ($urlArr as $url) {
-	
-
 	$userInput = $url;
 	// checks the status codes of all urls
 	$rCode = get_http_response_code($userInput);
@@ -24,8 +22,6 @@ foreach ($urlArr as $url) {
 	if ($cCode == 0) {
 	$cCode = $rCode;
 	}
-
-	
 	//echo "url ".$finalURL."</br>";
 	//echo "updated status code ".$cCode."</br>";
 
@@ -33,12 +29,13 @@ foreach ($urlArr as $url) {
 	//finally  updates statuscodes in mysql database
 	
 	
-	$sqlUpdate = "UPDATE uptimebot SET lastupdate = NOW(), statuscode ='". $cCode."',  WHERE url ='$userInput'";
+	$sqlUpdate = "UPDATE uptimebot SET lastupdate=now(), statuscode ='".$cCode."'  WHERE url = '$userInput'";
 	if (mysqli_query($conn, $sqlUpdate)) {
 		echo "recorded successfully </br>";
 	} else {
 		echo "Could not able to execute sql".mysqli_error($conn);
 	}
+
 }
 
 
