@@ -13,11 +13,11 @@
 
 $userInput = $_GET['urlName'];
 
-$urlRedirect = get_redirect_final_target($userInput);
-//$date = date('Y-m-d H:i:s');
+$sanitizedURL = mysqli_real_escape_string($conn, $userInput);
+
+$urlRedirect = get_redirect_final_target($sanitizedURL);
+
 $finalURL = get_final_url($urlRedirect);
-
-
 
 $rCode = get_http_response_code($finalURL);
 $cCode = curlResponseCode($finalURL);
@@ -27,18 +27,22 @@ if ($cCode == 0) {
 	$cCode = $rCode;
 }
 
-$isURL = is_url($finalURL);
 /*
 echo 'final url status code '.$cCode.'</br>';
 echo 'get http url status code '.$rCode.'</br>';
 echo "final url ".$finalURL.'</br>';
 */
-// CHECKS IF URL IS ALREADY STORED IN THE  DATABASE
 
+// IF URL IS VALID
+$isURL = is_url($finalURL);
+
+// VARIABLE TO INSERT INTO DATABASE
 $sql = "INSERT INTO uptimebot (url, statuscode) VALUES('".$finalURL."','".$cCode."')";
 
+// VARIABLE TO CHECK IF URL EXIST IN DATABASE
+$checkQuery = "SELECT urlID, url, statuscode, lastupdate FROM uptimebot WHERE url = '".$finalURL."'";
 
-$result = $conn->query("SELECT urlID, url, statuscode, lastupdated FROM uptimebot WHERE url = '".$finalURL."'");
+$result = $conn->query($checkQuery);
 
 if ($isURL == TRUE) {
 	if ($result->num_rows == 0) {
@@ -61,7 +65,7 @@ if ($isURL == TRUE) {
 	 	echo "id ".$id."</br>";
 	 	echo "url ".$url."</br>";
 	 	echo "statuscode ".$statuscode."</br>";
-	 	echo "timestamp ".$lastupdate."</br>";
+	 	echo "last updated at  ".$lastupdate."</br>";
 		}
 	}
 } else {
