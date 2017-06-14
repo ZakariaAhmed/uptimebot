@@ -12,25 +12,35 @@
 <?php 
 
 $userInput = $_GET['urlName'];
+$cronSchedule = $_GET['cronselect'];
 
 $sanitizedURL = mysqli_real_escape_string($conn, $userInput);
 
 $urlRedirect = get_redirect_final_target($sanitizedURL);
-
+$redirecStatus = curlResponseCode($sanitizedURL);
 $finalURL = get_final_url($urlRedirect);
 
+
+// TWO WAYS OF EXTRACTING STATUS CODE FROM URL
 $rCode = get_http_response_code($finalURL);
 $cCode = curlResponseCode($finalURL);
+
+// // removes all paths
 $strippedURL = stripURL($finalURL);
+
+// REDIRECT STATUS CODE
+$redirecStatus = curlResponseCode($sanitizedURL);
+
 
 if ($cCode == 0) {
 	$cCode = $rCode;
 }
 
 /*
-echo 'final url status code '.$cCode.'</br>';
-echo 'get http url status code '.$rCode.'</br>';
-echo "final url ".$finalURL.'</br>';
+echo 'redirect status code '.$redirecStatus.'</br>';
+echo 'get http url status code '.$cCode.'</br>';
+echo "stripped url ".$finalURL.'</br>';
+echo "cron task schedule ".$cronSchedule.'</br>';
 */
 
 // IF URL IS VALID

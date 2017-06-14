@@ -12,19 +12,19 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="index.js"></script>
+<script src="app.js"></script>
 
 </head>
 <body>
 <h1 class="text-center">UptimeBot</h1>
-<form action="userinputs.php" method="get">
+<form action="test.php" method="get">
   <div class="form-group">
     <label>URL to monitor</label>
     <input type="text" class="form-control" name="urlName" placeholder="example www.mcdonalds.dk">
     <input type="submit" value="submit" />
 </div>
   <label for="formGroupExampleInput">When to call</label>
-  <select id="items"></select>
+  <select name="cronselect" id="list"></select>
   </form>
 
 

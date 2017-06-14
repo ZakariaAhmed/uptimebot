@@ -29,7 +29,7 @@ var cronSchedule = [
 	'* * */10 * *',
 	'* * */15 * *',
 	'* * */14 * *',
-	'59 23 28-31 * *'
+	'59 23 28-31 * *',
 	]
 
 
@@ -39,9 +39,7 @@ var option = '';
 for (var i=0;i<arrId.length;i++){
 	option += '<option value="'+ cronSchedule[i] + '">' + arrTime[i] + '</option>';
 }
-$('#items').append(option);
-
-
+$('#list').append(option);
 
 });
 

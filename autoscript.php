@@ -15,8 +15,8 @@ while ($row = $result->fetch_assoc()) {
 
 foreach ($urlArr as $url) {
 	// checks the status codes of all urls
-	$rCode = get_http_response_code($userInput);
-	$cCode = curlResponseCode($userInput);
+	$rCode = get_http_response_code($url);
+	$cCode = curlResponseCode($url);
 	
 	if ($cCode == 0) {
 	$cCode = $rCode;
