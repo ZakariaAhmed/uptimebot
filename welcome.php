@@ -47,7 +47,6 @@ $result = $conn->query($checkQuery);
 if ($isURL == TRUE) {
 	if ($result->num_rows == 0) {
 	// IF IT DOESNT EXIST IN DATABASE
-
 	if (mysqli_query($conn, $sql)) {
 
             echo "recorded successfully";

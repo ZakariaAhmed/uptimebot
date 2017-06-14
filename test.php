@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>
-		Test site
-	</title>
-	<?php 
+<?php  
 
-$date = date("m-d-Y H:i:s"); 
+require_once('Cron/src/');
 
-echo '</br>'.now();
-
-
- ?>
-</head>
-<body>
-<h1>
-	<?php //echo $cleanURL; ?>
-</h1>
-
-</body>
-</html>
-
+?>
