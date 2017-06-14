@@ -21,7 +21,7 @@ $finalURL = get_final_url($urlRedirect);
 
 $rCode = get_http_response_code($finalURL);
 $cCode = curlResponseCode($finalURL);
-
+$strippedURL = stripURL($finalURL);
 
 if ($cCode == 0) {
 	$cCode = $rCode;

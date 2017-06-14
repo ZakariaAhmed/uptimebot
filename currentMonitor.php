@@ -8,7 +8,8 @@
 
 <?php  
 include 'config.php'; 
- $result = $conn->query("SELECT url, statuscode, lastupdate FROM uptimebot");
+
+ $result = $conn->query("SELECT url, statuscode, lastupdate FROM uptimebot WHERE url = '$url'");
 
 	while($row = $result->fetch_assoc()) {
 		$url= $row["url"];

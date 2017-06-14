@@ -1,5 +1,3 @@
-<?php  
-
-require_once('Cron/src/');
-
-?>
+<?php 
+include_once 'uptimefunctions.php';
+ ?>

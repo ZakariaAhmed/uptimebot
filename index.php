@@ -17,11 +17,12 @@
 </head>
 <body>
 <h1 class="text-center">UptimeBot</h1>
-<form>
+<form action="userinputs.php" method="get">
   <div class="form-group">
-    <label for="formGroupExampleInput">URL to monitor</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="example www.mcdonalds.dk">
-  </div>
+    <label>URL to monitor</label>
+    <input type="text" class="form-control" name="urlName" placeholder="example www.mcdonalds.dk">
+    <input type="submit" value="submit" />
+</div>
   <label for="formGroupExampleInput">When to call</label>
   <select id="items"></select>
   </form>
