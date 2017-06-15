@@ -10,7 +10,7 @@
 include 'uptimefunctions.php';
 include 'config.php';
 
-$newDate = date('d-F-Y'); 
+$newDate = date('d-F-Y',); 
 
 echo $newDate;
 

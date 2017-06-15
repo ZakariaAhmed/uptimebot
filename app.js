@@ -32,6 +32,7 @@ var cronSchedule = [
 	'59 23 28-31 * *',
 	]
 
+var customerlist = ['Bang-Olufsen', 'Mcdonalds', 'x', 'x', 'x', 'x'];
 var option = '';
 
 for (var i=0;i<arrId.length;i++){
@@ -39,10 +40,10 @@ for (var i=0;i<arrId.length;i++){
 }
 $('#list').append(option);
 
-for (var i=0;i<arrId.length;i++){
-	option += '<option value="'+ cronSchedule[i] + '">' + arrTime[i] + '</option>';
+for (var i=0; i<customerList.length;i++){
+	option += '<option value="'+ cronSchedule[i] + '">' + customerlist[i] + '</option>';
 }
-$('#list').append(option);
+$('#customerlist').append(option);
 
 
 

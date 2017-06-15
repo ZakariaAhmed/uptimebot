@@ -20,6 +20,7 @@
     <tr>
       <th>URL</th>
       <th>StatusCode</th>
+      <th>Redirect</th>
       <th>Last Updated</th>
     </tr>
   </thead>
@@ -27,16 +28,19 @@
   <tbody>
   <?php  
     $url = 'www.mcdonalds.dk';
-    $result = $conn->query("SELECT url, statuscode, lastupdate FROM uptimebot");
+    $result = $conn->query("SELECT url, statuscode, redirectstatus, lastupdate FROM uptimebot");
 
     while($row = $result->fetch_assoc()) {
       $url= $row["url"];
       $statuscode = $row["statuscode"];
+      $redirect = $row["redirectstatus"];
       $lastupdate = $row["lastupdate"];
       echo "<tr>
       <td>".$url."</td>
       <td>".$statuscode."</td>
+      <td>".$redirect."</td>
       <td>".$lastupdate."</td>
+
       </tr>";
     
     }
