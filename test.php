@@ -10,6 +10,12 @@
 include 'uptimefunctions.php';
 include 'config.php';
 
+$newDate = date('d-F-Y'); 
+
+echo $newDate;
+
+
+/*
 $userInput = $_GET['urlName'];
 $cronSelect = $_GET['cronselect'];
 $sanitizedURL = mysqli_real_escape_string($conn, $userInput);
@@ -33,7 +39,7 @@ echo 'redirect status code '.$redirecStatus.'</br>';
 echo 'get http url status code '.$cCode.'</br>';
 echo "stripped url ".$strippedURL.'</br>';
 echo "cron task schedule ".$cronSelect.'</br>';
-
+*/
  ?>
 
 </body>

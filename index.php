@@ -18,9 +18,19 @@
 <body>
 <h1 class="text-center">UptimeBot</h1>
 <form action="test.php" method="get">
+ <div class="form-group">
+    <label for="exampleSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleSelect2">
+      <option>Mcdonalds</option>
+      <option>Bang Og Olufsen</option>
+      <option>x</option>
+      <option>x</option>
+      <option>x</option>
+    </select>
+  </div>
   <div class="form-group">
     <label>URL to monitor</label>
-    <input type="text" class="form-control" name="urlName" placeholder="example www.mcdonalds.dk">
+    <input type="text" class="form-control" name="urlName" placeholder="URL for Customer">
     <input type="submit" value="submit" />
 </div>
   <label for="formGroupExampleInput">When to call</label>

@@ -1,8 +1,10 @@
 <?php 
 $servername = "localhost";
-$username = "bestdfww_zakariaahmed";
-$password = "Z27546827z";
-$dbname = "bestdfww_uptime";
+$username = "root";
+$password = "";
+$dbname = "test";
+
+
 
 // forbinde til databasen
 // Create connection

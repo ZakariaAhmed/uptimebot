@@ -6,23 +6,13 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<?php  
-include 'config.php'; 
-
- $result = $conn->query("SELECT url, statuscode, lastupdate FROM uptimebot WHERE url = '$url'");
-
-	while($row = $result->fetch_assoc()) {
-		$url= $row["url"];
-	 	$statuscode = $row["statuscode"];
-	 	$lastupdate = $row["lastupdate"];
-	 	
-	}
-?>
 	<title>Monitoring Status Codes</title>
 </head>
+<?php include_once 'config.php'; ?>
+
 <body>
 <h1 class="text-center">
-	Currently Monitoring Links
+	Customers
 </h1>
 
 <table class="table table-striped table-inverse">
@@ -35,11 +25,22 @@ include 'config.php';
   </thead>
   
   <tbody>
-    <tr>
-    <td><?php echo $url; ?></td>
-    <td><?php echo $statuscode; ?></td>
-    <td><?php echo $lastupdate; ?></td>
-    </tr>
+  <?php  
+    $url = 'www.mcdonalds.dk';
+    $result = $conn->query("SELECT url, statuscode, lastupdate FROM uptimebot");
+
+    while($row = $result->fetch_assoc()) {
+      $url= $row["url"];
+      $statuscode = $row["statuscode"];
+      $lastupdate = $row["lastupdate"];
+      echo "<tr>
+      <td>".$url."</td>
+      <td>".$statuscode."</td>
+      <td>".$lastupdate."</td>
+      </tr>";
+    
+    }
+    ?>
   </tbody>
 </table>
 
