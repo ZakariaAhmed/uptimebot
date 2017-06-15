@@ -1,5 +1,8 @@
 <?php 
 
+// CURL INFO
+// http://codular.com/curl-with-php
+
 $url;
 $API = '6JTZ7VMQJS8103YRHXONPU5SV0448WEZ';
 $newCronURL = 'https://www.setcronjob.com/api/cron.add?token='.$API.'&minute=1&hour=1,2,3&url='.$url;
